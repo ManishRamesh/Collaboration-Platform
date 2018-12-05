@@ -1,0 +1,30 @@
+<head>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="resources/css/blogform.css" rel="stylesheet">
+
+</head>
+
+<div class="card card-container">
+
+	<img id="profile-img" class="profile-img-card"
+		src="resources/images/blog.png" />
+
+	<form class="form-signin">
+		<span style="color: red">{{error.message}}</span> <input type="text"
+			class="form-control" placeholder="Enter Title"
+			ng-model="blog.blogTitle" required autofocus>
+
+		<textarea rows="10" cols="100" class="form-control"
+			placeholder="Enter Content" ng-model="blog.blogContent" required></textarea>
+
+		<br>
+		<button class="btn btn-lg btn-primary btn-block btn-signin"
+			ng-click="addBlog(blog)">Add Blog</button>
+	</form>
+</div>
+
+

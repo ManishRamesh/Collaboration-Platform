@@ -1,0 +1,37 @@
+
+
+<center>
+	<b>Job Details</b>
+</center>
+<br>
+<div class="container">
+	<b>Search</b> <input type="text" ng-model="searchTxt"><br>
+	<br>
+	<div class="panel panel-info">
+		<div class="panel-heading">Job Details</div>
+		<div class="panel-body">
+			<ul style="list-style: none;">
+				<li
+					ng-repeat="job in jobs | orderBy :'-postedOn' | filter:searchTxt">
+					<b>Job Title:</b>{{job.jobTitle}}<br> <b>Posted On:</b>{{job.postedOn
+					| date : 'MM-dd-yyyy'}}<br> <b>Skills Required:</b>{{job.skillsRequired}}<br>
+					<!-- <b> isClicked: {{isClicked}} &nbsp; jobId={{jobId}} &nbsp;
+						job.id ={{job.id}}</b> <b>{{isClicked && jobId==job.id}}</b><br> -->
+					<a ng-click="showDetails(job.id)"
+					ng-hide="isClicked && jobId==job.id">Show more details</a>
+
+					<div ng-show="isClicked && jobId==job.id">
+						<b>Job Description:</b>{{job.jobDescription}}<br> <b>Location
+							: </b>{{job.location}}<br> <b>Salary : </b>{{job.salary}}<br>
+						<b>Company Name: </b>{{job.companyName}}<br>
+						<button class="btn btn-primary" ng-click="">Apply</button>
+						<br> <a ng-click="showDetails(job.id)"
+							ng-show="isClicked && jobId==job.id">Hide more details</a>
+					</div>
+					<hr>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+</div>

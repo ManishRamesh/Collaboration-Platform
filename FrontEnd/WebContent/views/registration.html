@@ -1,0 +1,52 @@
+<head>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<link href="resources/css/registration.css" rel="stylesheet">
+
+<div class="card card-container">
+	<img id="profile-img" class="profile-img-card"
+		src="resources/images/registration.png" />
+
+	<form class="form-signin">
+		<span style="color: red">{{error.message}}</span> <input type="email"
+			class="form-control" placeholder="Email address"
+			ng-model="user.email" required autofocus> <input
+			type="password" class="form-control" placeholder="Password"
+			ng-model="user.password" required> <input type="text"
+			class="form-control" placeholder="First Name"
+			ng-model="user.firstname" required autofocus> <input
+			type="text" class="form-control" placeholder="Last Name"
+			ng-model="user.lastname" required autofocus> <input
+			type="number" class="form-control" placeholder="Phone number"
+			ng-model="user.phonenumber" required autofocus> <br>
+	
+		Select Role:<select ng-model="user.role">
+			<option value="STUDENT">Student
+			<option value="EMPLOYEE">Employee
+			<option value="ALUMNI">Alumni
+		</select><br> <br>
+
+		<button class="btn btn-lg btn-primary btn-block btn-signin"
+			ng-click="registration(user)">Sign Up</button>
+	</form>
+	<a href="#/login"><center>Already have an account? Login</center></a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

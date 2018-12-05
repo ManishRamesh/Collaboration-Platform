@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="panel panel info">
+		<div class="panel-body">
+			<ul style="list-style: none">
+				<li ng-repeat="user in suggestedUsers"><img class="img-circle"
+					src="http://localhost:8080/Middleware/getimage?email={{user.email}}"
+					alt="No Image" height="40px" width="60px"><br>
+					{{user.email}}<br> {{user.role}}<br>
+					{{user.firstname}}&nbsp;{{user.lastname}}<br>
+					<button class="btn btn-info" ng-click="sendFriendRequest(user)">Send
+						Friend Request</button>
+					<hr></li>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<span style="color: red">{{error.message}}</span>
+<div class="container" ng-show="user.role=='ADMIN'">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<b>Blog Title </b> {{blogPost.blogTitle}}<br> <b>Posted On </b>{{blogPost.postedOn
+			| date :'dd-MM-yyyy'}}<br> <b>Posted By </b>{{blogPost.postedBy.firstname}}
+			&nbsp; {{blogPost.postedBy.lastname}}<br> <b>Email </b>{{blogPost.postedBy.email}}<br>
+		</div>
+		<div class="panel-body">
+			<b>BlogContent </b><br>{{blogPost.blogContent}}<br>
+			<button ng-click="approve(blogPost)" class="btn btn-info">Approve</button>
+			&nbsp;
+			<button ng-click="showTxtForRejectionReason()" class="btn btn-danger">Reject</button>
+			<div ng-show="isRejected"><br>
+				<textarea rows="5" cols="50" placeholder="Rejection Reason"
+					ng-model="rejectionReason" required></textarea><br>
+				<button ng-click="reject(blogPost,rejectionReason)"
+					class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

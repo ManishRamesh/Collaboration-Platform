@@ -1,0 +1,8 @@
+<ul style="list-style: none;">
+	<li ng-repeat="user in  friends"><img class="img-circle"
+		src="http://localhost:8080/Middleware/getimage?email={{user.email}}"
+		alt="No Image" height="60px" width="60px"><br>
+		{{user.email}}<br> {{user.firstname}}&nbsp; {{user.lastname}}<br>
+		{{user.role}}<br>
+		<hr></li>
+</ul>

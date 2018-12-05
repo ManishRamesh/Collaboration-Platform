@@ -1,0 +1,17 @@
+<div class="container">
+	<div ng-show="pendingrequests.length==0">
+		<h3>No Pending Requests</h3>
+	</div>
+	<ul style="list-style: none;">
+		<li ng-repeat="request in pendingrequests"><img
+			class="img-circle"
+			src="http://localhost:8080/Middleware/getimage?email={{user.email}}"
+			alt="No Image" height="60px" width="60px"><br>
+			{{request.fromId.email}}<br>
+			{{request.fromId.firstname}}&nbsp;{{request.fromId.lastname}}<br>
+			<button class="btn btn-primary" ng-click="acceptRequest(request)">Accept</button>
+			&nbsp;
+			<button class="btn btn-danger" ng-click="deleteRequest(request)">Delete</button>
+			<hr></li>
+	</ul>
+</div>

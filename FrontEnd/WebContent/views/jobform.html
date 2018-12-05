@@ -1,0 +1,70 @@
+<!--
+<div ng-show="user.role!='ADMIN'">Access denied..</div>
+<div ng-show="user.role=='ADMIN'">
+	<form>
+		Enter Job Title : <input type="text" ng-model="job.jobTitle"><br>
+		Enter Job Description :
+		<textarea ng-model="job.jobDescription"></textarea>
+		<br> Enter Job Location : <input type="text"
+			ng-model="job.location"><br> Enter Salary : <input
+			type="text" ng-model="job.salary"><br> Enter Skills
+		Required : <input type="text" ng-model="job.skillsRequired"><br>
+		Enter Years of Exp : <input type="text" ng-model="job.yrsOfExp"><br>
+		Enter Company name : <input type="text" ng-model="job.companyName"><br>
+		<button class="btn btn-info" ng-click="addJob(job)">Add Job</button>
+	</form>
+</div>
+ -->
+
+<head>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</head>
+<link href="resources/css/jobform.css" rel="stylesheet">
+
+<div class="card card-container">
+	<!-- <img id="profile-img" class="profile-img-card"
+		src="resources/images/job.png" /> -->
+	<span style="color: red">{{error.message}}</span>
+	<div ng-show="user.role!='ADMIN'">Access denied..</div>
+	<div ng-show="user.role=='ADMIN'">
+		<center>
+			<h3>Job Form</h3>
+		</center>
+		<form class="form-signin">
+
+			<input type="text" class="form-control" placeholder="Enter Job Title"
+				ng-model="job.jobTitle" required>
+
+			<textarea rows="2" cols="80" type="text" class="form-control"
+				placeholder="Enter Job Description" ng-model="job.jobDescription"
+				required></textarea>
+
+			<input type="text" class="form-control"
+				placeholder="Enter Job Location" ng-model="job.location" required
+				autofocus> 
+			
+			<input type="text" class="form-control"
+				placeholder="Enter Salary" ng-model="job.salary" required autofocus>
+
+			<input type="text" class="form-control"
+				placeholder="Enter Skills Required" ng-model="job.skillsRequired"
+				required autofocus> 
+				
+			<input type="text" class="form-control"
+				placeholder="Enter Years of Experience" ng-model="job.yrsOfExp"
+				required autofocus> 
+				
+			<input type="text" class="form-control"
+				placeholder="Enter Company Name" ng-model="job.companyName" required
+				autofocus><br>
+
+			<button class="btn btn-lg btn-primary btn-block btn-signin"
+				ng-click="addJob(job)">Add Job</button>
+
+		</form>
+
+	</div>
