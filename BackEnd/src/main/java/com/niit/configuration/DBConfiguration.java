@@ -17,6 +17,7 @@ import com.niit.models.BlogPost;
 import com.niit.models.BlogPostLikes;
 import com.niit.models.Friend;
 import com.niit.models.Job;
+import com.niit.models.JobApplication;
 import com.niit.models.Notification;
 import com.niit.models.ProfilePicture;
 import com.niit.models.User;
@@ -49,7 +50,7 @@ public class DBConfiguration {
 
 		lsf.addProperties(hibernateProperties);
 		Class classes[] = new Class[] { User.class, Job.class, BlogPost.class, Notification.class, BlogPostLikes.class,
-				BlogComment.class, Friend.class, ProfilePicture.class }; // Model class
+				BlogComment.class, Friend.class, ProfilePicture.class,JobApplication.class }; // Model class
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 
 	}

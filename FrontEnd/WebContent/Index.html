@@ -84,7 +84,8 @@
 					<li ng-show="user.email!=undefined"><a
 						href="#/uploadprofilepic"><img class="img-circle"
 							src="http://localhost:8080/Middleware/getimage?email={{user.email}}"
-							alt="Add Profile Pic" height="40px" width="60px"></a></li>
+							alt="Not found"
+				onerror=this.src="resources/images/avatar.png" height="40px" width="60px"></a></li>
 
 					<li><a href="#/chat" ng-show="user.firstname">Chat</a></li>
 

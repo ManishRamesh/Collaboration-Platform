@@ -25,4 +25,16 @@ app.controller('JobCtrl', function($scope, JobService, $location) {
 		$scope.isClicked = !$scope.isClicked;
 		$scope.jobId = jobId;
 	}
+
+	$scope.addJobApplication = function(job) {
+		JobService.addJobApplication(job).then(function(response) {
+			alert('Successfully applied')
+			$location.path('/getalljobs')
+		}, function(response) {
+			$scope.error = response.data
+			if ($scope.error.errorCode == 5)
+				$location.path('/login')
+		})
+	}
 })
+

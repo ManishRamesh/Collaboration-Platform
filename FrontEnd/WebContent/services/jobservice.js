@@ -12,6 +12,10 @@ app.factory('JobService', function($http) {
 	jobService.getAllJobs = function() {
 		return $http.get("http://localhost:8080/Middleware/getalljobs")
 	}
+	
+	jobService.addJobApplication=function(job){
+		return $http.post("http://localhost:8080/Middleware/addJobApplication", job)
+	}
 	return jobService;
 
 })

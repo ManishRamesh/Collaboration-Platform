@@ -1,9 +1,7 @@
 package com.niit.controllers;
 
 import java.util.Date;
-
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.niit.dao.JobApplicationDao;
 import com.niit.dao.JobDao;
 import com.niit.dao.UserDao;
 import com.niit.models.ErrorClazz;
@@ -28,6 +27,8 @@ public class JobController {
 	private JobDao jobDao;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private JobApplicationDao jobApplicationDao;
 
 	public JobController() {
 		System.out.println("Inside Job Controller");
@@ -72,15 +73,20 @@ public class JobController {
 
 	}
 
-//	@RequestMapping(value = "/addJobApplication", method = RequestMethod.POST)
-//	public ResponseEntity<?> addJobApplication(@RequestBody JobApplication jobApplication, HttpSession session) {
-//		String email = (String) session.getAttribute("email");
-//		if (email == null) {
-//			ErrorClazz errorClazz = new ErrorClazz(5, "Unauthorized access..Please Login..");
-//			return new ResponseEntity<ErrorClazz>(errorClazz, HttpStatus.UNAUTHORIZED);
-//		}
-//		
-//		
-//	}
+	@RequestMapping(value = "/addJobApplication", method = RequestMethod.POST)
+	public ResponseEntity<?> addJobApplication(@RequestBody Job job, HttpSession session) {
+		String email = (String) session.getAttribute("email");
+		if (email == null) {
+			ErrorClazz errorClazz = new ErrorClazz(5, "Unauthorized access..Please Login..");
+			return new ResponseEntity<ErrorClazz>(errorClazz, HttpStatus.UNAUTHORIZED);
+		}
+		JobApplication jobApplication = new JobApplication();
+		User user = userDao.getUser(email);
+		jobApplication.setUser(user);
+		jobApplication.setJob(job);
 
+		jobApplicationDao.addJobApplication(jobApplication);
+		
+		return new ResponseEntity<JobApplication>(jobApplication, HttpStatus.OK);
+	}
 }
